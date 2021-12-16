@@ -1,5 +1,5 @@
 function makeRandomNumber_one() {
-  return MissionUtils.Random.pickNumberInRange(0, 9);
+  return MissionUtils.Random.pickNumberInRange(1, 9);
 }
 function checkAlreadyContain(numArray, nowNum) {
   return (numArray.includes(nowNum)) ? false : true;
