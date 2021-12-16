@@ -1,3 +1,38 @@
+## 구현 기능 목록
+
+- 컴퓨터의 랜덤 숫자 3개 생성
+  - 컴퓨터의 랜덤 숫자가 조건을 만족하는지 확인?
+    - 조건1. 만든 숫자 list의 길이가 3인가?
+    - 조건2. 모두 다른 숫자들로 이루어져있는가?
+- 사용자 입력받기
+  - 사용자의 입력이 조건을 만족하는지 확인
+    - 조건1. 입력이 3자인가?
+    - 조건2. 입력이 모두 숫자로 이루어졌는가?
+    - 조건3. 모두 다른 숫자들로 이루어져있는가?
+- 사용자 입력에 대한 결과 탐색
+  - 컴퓨터가 만든 숫자 list와 사용자의 입력을 비교하여 결과 만들기
+    - 자리는 다르고 숫자만 같으면 => 볼
+    - 자리도 같고 숫자도 같으면 => 스트라이크
+    - 일치하는 숫자가 없으면 => 아웃
+  - 볼, 스트라이크 카운트 출력문구 만들기
+    - 0볼, 0스트라이크 === 낫싱
+    - 1~3볼, 0스트라이크 === 1~3볼
+    - 0볼, 1~2스트라이크 === 1~2스트라이크
+    - 1~3볼, 1~2스트라이크 === 1~3볼 1~2스트라이크
+    - 3스트라이크 === 정답문구 & 재시작 문구 출력
+- 컴퓨터와의 비교 결과에 따른 문구 출력
+  - False(3스트라이크 아닌 경우)
+    - 볼, 스트라이크 카운트 문구 출력
+  - True(3스트라이크인 경우)
+    - 축하문구 & 재시작 여부 문구 출력
+- 재시작시
+  - 입력받았던 요소들 삭제
+  - 새 게임 시작
+    - 결과 문구 삭제
+    - 가장 위의 기능부터 다시 시작하게 하기
+
+---
+
 <p align="middle" >
   <img width="200px;" src="https://github.com/woowacourse/javascript-baseball-precourse/blob/main/images/baseball_icon.png?raw=true"/>
 </p>
@@ -9,15 +44,16 @@
 - 세 개의 요구사항을 만족하기 위해 노력한다. 특히 기능을 구현하기 전에 기능 목록을 만들고, 기능 단위로 커밋 하는 방식으로 진행한다.
 
 ---
+
 ## 🎯 기능 요구사항
 
 기본적으로 1부터 9까지 서로 다른 수로 이루어진 3자리의 수를 맞추는 게임이다.
 
 - 같은 수가 같은 자리에 있으면 `스트라이크`, 다른 자리에 있으면 `볼`, 같은 수가 전혀 없으면 `낫싱`이란 힌트를 얻고, 그 힌트를 이용해서 먼저 상대방(컴퓨터)의 수를 맞추면 승리한다.
   - 예) 상대방(컴퓨터)의 수가 425일 때
-     - 123을 제시한 경우 : 1스트라이크
-     - 456을 제시한 경우 : 1볼 1스트라이크
-     - 789를 제시한 경우 : 낫싱
+    - 123을 제시한 경우 : 1스트라이크
+    - 456을 제시한 경우 : 1볼 1스트라이크
+    - 789를 제시한 경우 : 낫싱
 - 위 숫자 야구게임에서 상대방의 역할을 컴퓨터가 한다. 컴퓨터는 1에서 9까지 서로 다른 임의의 수 3개를 선택한다. 게임 플레이어는 컴퓨터가 생각하고 있는 3개의 숫자를 입력하고, 컴퓨터는 입력한 숫자에 대한 결과를 출력한다.
 - 이 같은 과정을 반복해 컴퓨터가 선택한 3개의 숫자를 모두 맞히면 게임이 종료되고, 재시작 버튼이 노출된다.
 - 게임이 종료된 후 재시작 버튼을 클릭해 게임을 다시 시작할 수 있다.
@@ -63,13 +99,16 @@ play(123, 134); // '1볼 1스트라이크'
 play(123, 132); // '2볼 1스트라이크'
 play(123, 124); // '2스트라이크'
 ```
+
 ### DOM 선택자
+
 각 요소에 아래와 같은 선택자를 반드시 지정한다.
 
 - 게임을 다시 시작하는 재시작 button 태그는 `game-restart-button` id를 가진다.
   - 예) `<button id="game-restart-button">재시작</button>`
 
 ### 라이브러리
+
 - 컴퓨터의 랜덤 값은 반드시 JavaScript의 `Math.Random` 대신 [`MissionUtils` 라이브러리](https://github.com/woowacourse-projects/javascript-mission-utils#mission-utils)의 `Random.pickNumberInRange`를 사용해 구한다. (`MissionUtils`은 window객체 내에 포함되어 있음)
 
 ### 공통 요구사항
@@ -95,47 +134,52 @@ play(123, 124); // '2스트라이크'
 <br>
 
 ---
+
 ## 📝 과제 진행 요구사항
+
 - 미션은 [javascript-baseball-precourse](https://github.com/woowacourse/javascript-baseball-precourse/) 저장소를 Fork/Clone해 시작한다.
 - **기능을 구현하기 전에 javascript-baseball-precourse/docs/README.md 파일에 구현할 기능 목록을 정리**해 추가한다.
 - **Git의 커밋 단위는 앞 단계에서 README.md 파일에 정리한 기능 목록 단위**로 추가한다.
-   - [AngularJS Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 참고해 commit log를 남긴다.
+  - [AngularJS Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 참고해 commit log를 남긴다.
 - 과제 진행 및 제출 방법은 [프리코스 과제 제출 문서](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 를 참고한다.
 
 ## ✉️ 미션 제출 방법
 
 - 미션 구현을 완료한 후 GitHub을 통해 제출해야 한다.
-   - GitHub을 활용한 제출 방법은 [프리코스 과제 제출 문서](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 를 참고해 제출한다.
+  - GitHub을 활용한 제출 방법은 [프리코스 과제 제출 문서](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 를 참고해 제출한다.
 - GitHub에 미션을 제출한 후 [우아한테크코스 지원 플랫폼](https://apply.techcourse.co.kr) 에 접속하여 프리코스 과제를 제출한다.
-   - 자세한 방법은 [링크](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse#제출-가이드) 를 참고한다.
-   - **Pull Request만 보내고, 지원 플랫폼에서 과제를 제출하지 않으면 최종 제출하지 않은 것으로 처리되니 주의한다.**
-
+  - 자세한 방법은 [링크](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse#제출-가이드) 를 참고한다.
+  - **Pull Request만 보내고, 지원 플랫폼에서 과제를 제출하지 않으면 최종 제출하지 않은 것으로 처리되니 주의한다.**
 
 ### 🚨 과제 제출 전 체크리스트 - 0점 방지를 위한 주의사항
+
 - 요구사항에 명시된 출력값 형식을 지키지 않을 경우 기능 구현을 모두 정상적으로 했더라도 0점으로 처리된다.
 - 기능 구현을 완료한 뒤 아래 가이드에 따라 테스트를 실행했을 때 모든 테스트가 성공하는 지 확인한다. **테스트가 실패할 경우 0점으로 처리되므로, 반드시 확인 후 제출한다.**
 
 ### ✔️ 테스트 실행 가이드
-- 테스트 실행에 필요한 패키지 설치를 위해 `Node.js` 버전 `14` 이상이 필요하다. 
-- 다음 명령어를 입력해 패키지를 설치한다.     
+
+- 테스트 실행에 필요한 패키지 설치를 위해 `Node.js` 버전 `14` 이상이 필요하다.
+- 다음 명령어를 입력해 패키지를 설치한다.
+
 ```bash
 // {폴더 경로}/javascript-baseball-precourse/ 에서
 npm install
-```     
+```
 
 - 설치가 완료되었다면, 다음 명령어를 입력해 테스트를 실행한다.
+
 ```bash
 // {폴더 경로}/javascript-baseball-precourse/ 에서
 npm run test
 ```
 
-- 아래와 같은 화면이 나오며 모든 테스트가 pass한다면 성공! 
+- 아래와 같은 화면이 나오며 모든 테스트가 pass한다면 성공!
 
 ![테스트 결과](./images/test_result.png)
 
 ---
 
-<br>    
+<br>
 
 ## 🔗 참고 링크
 
