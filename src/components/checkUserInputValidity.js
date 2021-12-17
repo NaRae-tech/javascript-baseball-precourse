@@ -1,18 +1,27 @@
 function lengthValidity(userInput) {
-  return (userInput.length === 3) ? true : false;
+  if (userInput.length !== 3) {
+    return alert('3자리 숫자를 입력해주세요.');
+  }
+  return true;
 }
 function typeValidity(userInput) {
-  return (parseInt(userInput) !== NaN) ? true : false;
+  if (parseInt(userInput) === NaN) {
+    return alert('숫자로만 입력해주세요.');
+  }
+  return true;
 }
 function duplicationValidity(userInput) {
   const setUserInput = new Set(userInput);
-  return (userInput.length === setUserInput.size) ? true : false;
+  if (userInput.length !== setUserInput.size) {
+    return alert('모두 다른 숫자로 입력해주세요.');
+  }
+  return true;
 }
 function rangeValidity(userInput) {
   const range = [...Array(10).keys()].splice(1);
   for (let i = 0; i < userInput.length; i++){
     if (!range.includes(parseInt(userInput[i]))) {
-      return false;
+      return alert('1~9사이의 숫자로 입력해주세요.');
     }
   }
   return true;
