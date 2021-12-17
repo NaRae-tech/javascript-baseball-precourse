@@ -4,10 +4,10 @@ export function DecideResultWords(computerBall, userBall) {
   if (ballCount[0] === 0 && ballCount[1] === 0) {
     return "낫싱";
   }
-  else if (ballCount[0] === 0 && ballCount[1] > 1) {
+  else if (ballCount[0] === 0 && ballCount[1] > 0) {
     return `${ballCount[1]}볼`;
   }
-  else if (ballCount[0] > 1 && ballCount[1] === 0) {
+  else if (ballCount[0] > 0 && ballCount[1] === 0) {
     return `${ballCount[0]}스트라이크`
   }
   else {
