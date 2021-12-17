@@ -26,7 +26,7 @@ function rangeValidity(userInput) {
   }
   return true;
 }
-export function CheckUserInputValidity(userInput) {
+export default function CheckUserInputValidity(userInput) {
   if (!lengthValidity(userInput)) {
     return false;
   }
