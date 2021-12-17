@@ -1,4 +1,5 @@
-export function DecideResultWords(computerBall,userBall) {
+import { DecideBallCount } from './decideBallCount.js';
+export function DecideResultWords(computerBall, userBall) {
   const ballCount = DecideBallCount(computerBall, userBall);  //[strike,ball]순서로 return
   if (ballCount[0] === 0 && ballCount[1] === 0) {
     return "낫싱";
