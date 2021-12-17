@@ -5,7 +5,7 @@ import { PrintResultWords } from './components/printResultWords.js';
 
 function start() {  
   $('#result').innerHTML = '';
-  $('#submit').type = "button";
+  $('#submit').type = 'button';
 }
 export default function BaseballGame() {
   start();
@@ -15,6 +15,6 @@ export default function BaseballGame() {
     if (CheckUserInputValidity(userInput)) {
       PrintResultWords(computerNumber, userInput);
     }
-  })
+  });
 }
 BaseballGame();

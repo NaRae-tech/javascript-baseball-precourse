@@ -5,7 +5,7 @@ function lengthValidity(userInput) {
   return true;
 }
 function typeValidity(userInput) {
-  if (parseInt(userInput) === NaN) {
+  if (isNaN(parseInt(userInput))) {
     return alert('숫자로만 입력해주세요.');
   }
   return true;

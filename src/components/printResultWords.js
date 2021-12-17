@@ -7,7 +7,7 @@ export function PrintResultWords(computerBall, userBall) {
   const correctness = CheckCorrectness(computerBall, userBall);
   if (correctness) {
     $('#submit').disabled = true;
-    $('#result').innerHTML = `🎉정답을 맞추셨습니다.🎉`;
+    $('#result').innerHTML = '🎉정답을 맞추셨습니다.🎉';
     PrintRestartButton();
   }
   else {

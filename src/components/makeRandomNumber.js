@@ -12,5 +12,5 @@ export function MakeRandomNumber() {
       numbers.push(tempRandomNum);
     }
   }
-  return numbers.join("");
+  return numbers.join('');
 }
